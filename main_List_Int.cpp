@@ -6,27 +6,22 @@ Discussion Section: 2A
 Date: 03/10/2023
 */
 #include "List_Int.h"
-#include <iostream>
-#include <list>
 using namespace std;
 int main()
 {
     cout << "Please input a set of nonnegative numbers for a list" << endl;
     cout << "(Enter -1 when you are finished):" << endl;
     //cin list
-    int input;
-    list <int> origlist; //defines first list input
+    int input; //defines first list input
+    List tempobj;
     while (cin >> input)
     {
         if (input == -1)
-        {
-            break;
-        }
-        origlist.push_back(input); //initializes list input
+            {break;}
+        tempobj.push_back(input); //initializes list input
     }
-    cout << "Your list is" << endl;
-    // List obj1;
-    // cout << obj1.display(origlist) << endl; //calls display for format of list
+    cout << "Your list is " << endl;
+    tempobj.display(); //calls display for format of list
     cout << "Select an index for insertion (enter -1 when finished:): ";
     //cin index1
     cout << "Select a value for insertion: ";
@@ -41,6 +36,7 @@ int main()
     //cout << reverselist << endl;
     cout << "If we merge this list with the list (2, 3, 5, 7, 11) we obtain" << endl;
     //cout << mergedlist << endl;
+    //
     return 0;
 }
 
