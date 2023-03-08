@@ -21,15 +21,28 @@ int main()
         tempobj.push_back(input); //initializes list input
     }
     cout << "Your list is " << endl;
-    tempobj.display(); //calls display for format of list
+    tempobj.display(); //calls display for format of list 
+    int index;
+    int value;
+    int count = 0;
     cout << "Select an index for insertion (enter -1 when finished:): ";
-    //cin index1
-    cout << "Select a value for insertion: ";
-    //cin value
-    cout << "Select an index for insertion (enter -1 when finished): ";
-    //cin index2
+    cin >> index;
+    while (index != -1){
+        if (count > 0){
+        cout << "Select an index for insertion (enter -1 when finished:): ";
+        cin >> index;} //only prints after first iteration
+        if (index == -1)
+        { break; } //quits loop if user inputs escape code
+        cout << "Select a value for insertion: ";
+        cin >> value;
+        List temp; 
+        List temp2;
+        temp2.insert(temp.move(index), value); //calls insert with user arguments
+        count++; //updates count
+    }
     cout << "The augmented list is" << endl;
-    //cout << augmentedlist << endl;
+    List augobj;
+    augobj.display(); //displays current, modified list
     cout << "When we sort the previous list we obtain" << endl;
     //cout << sortedlist << endl;
     cout << "And this sorted list in reverse order is" << endl;
