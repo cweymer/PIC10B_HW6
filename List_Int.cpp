@@ -24,10 +24,20 @@ List::List()
    lastnode = nullptr;
 
 }
-// List::List()
-// {
-//    //delete Node(element) ??
-// }
+ List::~List()
+{
+   Node *todelete = firstnode;
+   while (todelete != nullptr)
+   {
+      Node *tracker = todelete->next;
+      delete todelete;
+      todelete = tracker;
+   }
+   /*
+   moves the pointer to node to delete along with a tracker pointer 
+   and deletes nodes along list
+   */
+}
 
 void List::push_back(int element)
 {
@@ -124,6 +134,21 @@ void List::display()
          }
    cout << ")" << endl;
 }
+Iterator List::move(int index)
+{
+   Iterator it = this->begin(); //begin iterator at first node
+   cout << "hello";
+   cout << *it; //debugging code -- delete later
+   for (int i = 0; i < index; i++)
+   { //moves iterator until desired position is reached
+      if (it.position == nullptr)
+      {
+         break; //i think it's always somehow breaking here
+      }
+      it++; //moves iterator to desired position
+   }
+   return it;
+}
 Iterator::Iterator () 
 {
    
@@ -147,12 +172,6 @@ int Iterator::operator* ()
 {
       return this->get(); //returns derefenced value @ node
 }
-
-// bool Iterator::equals(Iterator currentiter) const
-// {
-//    return position == currentiter.position; //checks if the position is equal to where you want to be
-// }
-
 
 //need to implement operator overloading
 /*
