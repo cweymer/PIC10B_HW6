@@ -45,11 +45,10 @@ int main()
     listreal.sort();
     listreal.display();
     cout << "And this sorted list in reverse order is" << endl;
-    //cout << reverselist << endl;
+    listreal.reverse();
+    listreal.display();
     cout << "If we merge this list with the list (2, 3, 5, 7, 11) we obtain" << endl;
     //cout << mergedlist << endl;
-    //
-    // listreal.~List();
     return 0;
 }
 

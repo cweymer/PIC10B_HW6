@@ -36,9 +36,9 @@ class List {
         void push_back(int element); //inserts element at end of list
         void insert(Iterator iter, int element); //inserts element at given position
         void display(); //prints current list
-        Iterator move(int index);
         void push_front(); //adds value to beginning of list
         void sort(); //sorts elements
+        Iterator move(int index);
         void merge(); //accepts another list object and merges the two lists into one alternating element
         void reverse(); //reverses nodes 
         bool equals(Iterator currentiter) const; 

@@ -159,8 +159,6 @@ void List::display()
 Iterator List::move(int index)
 {
    Iterator it = this->begin(); //begin iterator at first node
-   cout << "hello";
-   cout << *it; //debugging code -- delete later
    for (int i = 0; i < index; i++)
    { //moves iterator until desired position is reached
       if (it.position == nullptr)
@@ -196,14 +194,21 @@ void List::sort()
 }
 void List::reverse ()
 {
-   Node* current = firstnode;
-   Node* prev = nullptr;
-   Node* next_ = nullptr;
-   while (current != nullptr)
+   Node* first = firstnode;
+   while (first != nullptr)
    {
-      Node* prevcopy;
-
+      Node* temp = first->next;
+      first->next = first->previous;
+      first->previous = temp; //switches first node forward and backward pointers
+      if (first == lastnode)
+      {
+         break; //escapes once reached last node
+      }
+      first = first->previous; //moves first and second pointers along list
    }
+   Node* tempswap = lastnode;
+   lastnode = firstnode; //reverses list pointers to first and last node
+   firstnode = tempswap;
 }
 Iterator::Iterator () 
 {
