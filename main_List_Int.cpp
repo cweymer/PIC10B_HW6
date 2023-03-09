@@ -42,13 +42,14 @@ int main()
     cout << "The augmented list is" << endl;
     listreal.display(); //displays current, modified list
     cout << "When we sort the previous list we obtain" << endl;
-    //cout << sortedlist << endl;
+    listreal.sort();
+    listreal.display();
     cout << "And this sorted list in reverse order is" << endl;
     //cout << reverselist << endl;
     cout << "If we merge this list with the list (2, 3, 5, 7, 11) we obtain" << endl;
     //cout << mergedlist << endl;
     //
-    listreal.~List();
+    // listreal.~List();
     return 0;
 }
 

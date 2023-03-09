@@ -16,6 +16,28 @@ Node::Node (int element)
    
 }
 
+int Node::operator* ()
+{
+   return this->data; //allows dereferencing of node objects
+}
+
+Node Node::operator++()
+{
+   return *(this->next);
+}
+
+Node Node::operator --()
+{
+   return *(this->previous);
+}
+
+void Node::swap(Node* other)
+{
+   int temp = other->data;
+   other->data = this->data;
+   this->data = temp;
+}
+
 List::List()
 
 {
@@ -124,7 +146,7 @@ void List::display()
    cout << "(";
       while(i.position != nullptr) //continues until tail is reached
          {
-            if (i.position== lastnode)
+            if (i.position == lastnode)
             {
                cout << *i; //does not print comma if position is last node
                break;
@@ -148,6 +170,40 @@ Iterator List::move(int index)
       it++; //moves iterator to desired position
    }
    return it;
+}
+void List::sort() 
+{
+   Node* i = firstnode;
+   if (i == nullptr || i->next == nullptr)
+   {
+      return; //exits if list is of 0 or 1 elements
+   }
+   Node* j = i->next;
+
+   while (i != nullptr)
+   {
+      j = i->next;
+         while (j != nullptr)
+      {
+            if (i->data > j->data)
+            {
+               i->swap(j); 
+            }
+            j = j->next;
+      }
+      i = i->next;
+   }
+}
+void List::reverse ()
+{
+   Node* current = firstnode;
+   Node* prev = nullptr;
+   Node* next_ = nullptr;
+   while (current != nullptr)
+   {
+      Node* prevcopy;
+
+   }
 }
 Iterator::Iterator () 
 {
@@ -173,7 +229,6 @@ int Iterator::operator* ()
       return this->get(); //returns derefenced value @ node
 }
 
-//need to implement operator overloading
 /*
 overload the ++ operator to increment list
 overload -- to decrement list
