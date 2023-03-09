@@ -15,29 +15,24 @@ Node::Node (int element)
     next = nullptr;
    
 }
-
 int Node::operator* ()
 {
    return this->data; //allows dereferencing of node objects
 }
-
 Node Node::operator++()
 {
    return *(this->next);
 }
-
 Node Node::operator --()
 {
    return *(this->previous);
 }
-
 void Node::swap(Node* other)
 {
    int temp = other->data;
    other->data = this->data;
    this->data = temp;
 }
-
 List::List()
 
 {
@@ -48,12 +43,10 @@ List::List()
 }
  List::~List()
 {
-   cout << "destruct";
    Node *todelete = firstnode;
    while (todelete != nullptr)
    {
       Node *tracker = todelete->next;
-      cout << todelete->data << endl;
       delete todelete;
       todelete = tracker;
    }
@@ -62,7 +55,6 @@ List::List()
    and deletes nodes along list
    */
 }
-
 void List::push_back(int element)
 {
       Node* new_node = new Node(element); //creates pointer to new node object
@@ -78,7 +70,6 @@ void List::push_back(int element)
       lastnode = new_node; //lastnode points to current node
    }
 }
-
 void List::insert (Iterator iter, int element)
 {
    if (iter.position == nullptr)
@@ -104,7 +95,6 @@ Iterator List::begin()
    obj.container = this;  //points to list object (implicit argument)
    return obj; //returns iterator type object
 }
-
 Iterator List::end()
 {
    Iterator obj; 
@@ -112,7 +102,6 @@ Iterator List::end()
    obj.container = this; //points to list object(implicit argument)
    return obj; //returns iterator type object
 }
-
 Iterator List::erase(Iterator iter)
 {  
    assert(iter.position != NULL); //throws error if position is empty (illegal to check position if nullptr)
@@ -194,19 +183,18 @@ void List::sort()
       i = i->next;
    }
 }
-void List::merge(List obj1, List obj2)
+void List::merge(List* obj1, List* obj2, List* obj3)
 {
-   Iterator list1 = obj1.begin();
-   Iterator list2 = obj2.begin(); //starts iterators out at beg of list
+   Iterator list1 = obj1->begin();
+   Iterator list2 = obj2->begin(); //starts iterators out at beg of list
    int count = 0;  
-   List combinedlist;
    while (list1.position != nullptr && list2.position != nullptr)
    {
       if (count % 2 == 0)
       {
           if (list1.position != nullptr)
           {
-               combinedlist.push_back(*list1);
+               obj3->push_back(*list1);
                list1++;
           }
       }
@@ -214,13 +202,12 @@ void List::merge(List obj1, List obj2)
       {
          if (list2.position != nullptr)
          {
-            combinedlist.push_back(*list2);
+            obj3->push_back(*list2);
             list2++;
          }
       }
       count++;
    }
-   combinedlist.display();
 }
 void List::reverse ()
 {
@@ -244,10 +231,6 @@ Iterator::Iterator ()
 {
    
 }
-int Iterator::get() const
-{
-   return position->data; //retrieves data from where position is
-}
 Iterator Iterator::operator++ (int)
 {
    position = position->next; //increments iterator to next node
@@ -258,10 +241,9 @@ Iterator Iterator::operator--(int)
    position = position->previous;
    return *this; //decrements iterator to previous node
  }
-
 int Iterator::operator* () 
 {
-      return this->get(); //returns derefenced value @ node
+      return this->position->data; //returns derefenced value @ node
 }
 
 /*

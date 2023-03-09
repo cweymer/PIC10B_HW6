@@ -55,8 +55,9 @@ int main()
     listmerge.push_back(7);
     listmerge.push_back(11); //creates secondary list called listmerge for merging
     List finalist;
-    finalist.merge(listreal, listmerge);
+    List temp;
+    temp.merge(&listreal, &listmerge, &finalist);
+    finalist.display();
     return 0;
-    //destructor called
 }
 

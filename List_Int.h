@@ -39,7 +39,7 @@ class List {
         void push_front(); //adds value to beginning of list
         void sort(); //sorts elements
         Iterator move(int index);
-        void merge(List obj1, List obj2); //accepts another list object and merges the two lists into one alternating element
+        void merge(List* obj1, List* obj2, List* obj3); //accepts another list object and merges the two lists into one alternating element
         void reverse(); //reverses nodes 
         bool equals(Iterator currentiter) const; 
      private:
@@ -51,7 +51,6 @@ class List {
 class Iterator {
     public:
         Iterator();//constructs iterator that does not point into list
-        int get() const; //checks value at position
         Iterator operator++ (int);  //overloads ++ operator for iterating
         Iterator operator-- (int); //overloads -- operator for iterating
         int operator* (); //overloads * operator for dereferencing node pointers
