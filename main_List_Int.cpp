@@ -32,7 +32,7 @@ int main()
         cout << "Select an index for insertion (enter -1 when finished:): ";
         cin >> index1;} //only prints after first iteration
         if (index1 == -1)
-        { break; } //quits loop if user inputs escape code
+        { break;} //quits loop if user inputs escape code
         cout << "Select a value for insertion: ";
         cin >> value;  //code stops working here
         Iterator tempit = listreal.move(index1); 
@@ -48,7 +48,15 @@ int main()
     listreal.reverse();
     listreal.display();
     cout << "If we merge this list with the list (2, 3, 5, 7, 11) we obtain" << endl;
-    //cout << mergedlist << endl;
+    List listmerge;
+    listmerge.push_back(2);
+    listmerge.push_back(3);
+    listmerge.push_back(5);
+    listmerge.push_back(7);
+    listmerge.push_back(11); //creates secondary list called listmerge for merging
+    List finalist;
+    finalist.merge(listreal, listmerge);
     return 0;
+    //destructor called
 }
 

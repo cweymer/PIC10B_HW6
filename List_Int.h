@@ -39,7 +39,7 @@ class List {
         void push_front(); //adds value to beginning of list
         void sort(); //sorts elements
         Iterator move(int index);
-        void merge(); //accepts another list object and merges the two lists into one alternating element
+        void merge(List obj1, List obj2); //accepts another list object and merges the two lists into one alternating element
         void reverse(); //reverses nodes 
         bool equals(Iterator currentiter) const; 
      private:

@@ -48,10 +48,12 @@ List::List()
 }
  List::~List()
 {
+   cout << "destruct";
    Node *todelete = firstnode;
    while (todelete != nullptr)
    {
       Node *tracker = todelete->next;
+      cout << todelete->data << endl;
       delete todelete;
       todelete = tracker;
    }
@@ -191,6 +193,34 @@ void List::sort()
       }
       i = i->next;
    }
+}
+void List::merge(List obj1, List obj2)
+{
+   Iterator list1 = obj1.begin();
+   Iterator list2 = obj2.begin(); //starts iterators out at beg of list
+   int count = 0;  
+   List combinedlist;
+   while (list1.position != nullptr && list2.position != nullptr)
+   {
+      if (count % 2 == 0)
+      {
+          if (list1.position != nullptr)
+          {
+               combinedlist.push_back(*list1);
+               list1++;
+          }
+      }
+      else 
+      {
+         if (list2.position != nullptr)
+         {
+            combinedlist.push_back(*list2);
+            list2++;
+         }
+      }
+      count++;
+   }
+   combinedlist.display();
 }
 void List::reverse ()
 {
