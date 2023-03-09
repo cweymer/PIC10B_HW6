@@ -15,13 +15,9 @@ class Node {
     public:
         Node(int element); //constructs node with given element    
     private:
-        int data;
+        int data; //value in each node
         Node* previous; //each node has a previous pointer to backwards data element
         Node* next; //each node has a next pointer to forward data element
-        //permits use of private members from list and iterator
-        int operator* (); //allows dereferencing of nodes
-        Node operator++(); //allows moving between nodes via ++
-        Node operator--(); //allows moving between nodes via --
         void swap (Node* other); //swaps data for sort
         friend class List; 
         friend class Iterator;
@@ -36,12 +32,11 @@ class List {
         void push_back(int element); //inserts element at end of list
         void insert(Iterator iter, int element); //inserts element at given position
         void display(); //prints current list
-        void push_front(); //adds value to beginning of list
-        void sort(); //sorts elements
         Iterator move(int index);
+        void sort(); //sorts elements
         void merge(List* obj1, List* obj2, List* obj3); //accepts another list object and merges the two lists into one alternating element
         void reverse(); //reverses nodes 
-        bool equals(Iterator currentiter) const; 
+        void push_front(int element); //adds value to beginning of list
      private:
         Node* firstnode; 
         Node* lastnode;

@@ -13,19 +13,7 @@ Node::Node (int element)
     data = element;
     previous = nullptr;
     next = nullptr;
-   
-}
-int Node::operator* ()
-{
-   return this->data; //allows dereferencing of node objects
-}
-Node Node::operator++()
-{
-   return *(this->next);
-}
-Node Node::operator --()
-{
-   return *(this->previous);
+
 }
 void Node::swap(Node* other)
 {
@@ -167,20 +155,19 @@ void List::sort()
    {
       return; //exits if list is of 0 or 1 elements
    }
-   Node* j = i->next;
 
    while (i != nullptr)
    {
-      j = i->next;
+      Node* j = i->next; //initializes node next to node i
          while (j != nullptr)
       {
             if (i->data > j->data)
             {
-               i->swap(j); 
+               i->swap(j);  //if left is greater than right, swaps
             }
-            j = j->next;
+            j = j->next; //increment second node
       }
-      i = i->next;
+      i = i->next; //increment first node
    }
 }
 void List::merge(List* obj1, List* obj2, List* obj3)
@@ -188,7 +175,7 @@ void List::merge(List* obj1, List* obj2, List* obj3)
    Iterator list1 = obj1->begin();
    Iterator list2 = obj2->begin(); //starts iterators out at beg of list
    int count = 0;  
-   while (list1.position != nullptr && list2.position != nullptr)
+   while (list1.position != nullptr || list2.position != nullptr)
    {
       if (count % 2 == 0)
       {
@@ -226,6 +213,25 @@ void List::reverse ()
    Node* tempswap = lastnode;
    lastnode = firstnode; //reverses list pointers to first and last node
    firstnode = tempswap;
+}
+void List::push_front (int element)
+{
+   Node* new_node = new Node(element);
+   // if (iter.position == nullptr)
+   // {  
+   //    push_back(element);
+   //    return; //simply creates new node with given data when list is empty
+   // }
+   // Node* after = iter.position; //pointer to current position
+   // Node* before = after->previous; //pointer to previous position
+   // Node* new_node = new Node(element); //creates new node object
+   // new_node->previous = before; 
+   // new_node->next = after;
+   // after->previous = new_node;
+   // if (before == nullptr) // inserts at beginning of list
+   //    {firstnode = new_node;}
+   // else
+   //    {before->next = new_node;} //inserts at indicated position
 }
 Iterator::Iterator () 
 {
