@@ -17,17 +17,15 @@ Node::Node (int element)
 }
 void Node::swap(Node* other)
 {
-   int temp = other->data;
+   int temp = other->data; //helper function that moves the data between two nodes
    other->data = this->data;
    this->data = temp;
 }
 List::List()
-
 {
    //assigns pointers for head and tail to null
    firstnode = nullptr;
    lastnode = nullptr;
-
 }
  List::~List()
 {
@@ -181,7 +179,7 @@ void List::merge(List* obj1, List* obj2, List* obj3)
       {
           if (list1.position != nullptr)
           {
-               obj3->push_back(*list1);
+               obj3->push_back(*list1); //alternates between the two list to push back data
                list1++;
           }
       }
@@ -231,7 +229,7 @@ void List::push_front(int element)
 }
 Iterator::Iterator () 
 {
-   
+   //
 }
 Iterator Iterator::operator++ (int)
 {
@@ -247,31 +245,3 @@ int Iterator::operator* ()
 {
       return this->position->data; //returns derefenced value @ node
 }
-
-/*
-overload the ++ operator to increment list
-overload -- to decrement list
-overload * to deference iterator
-need to deal with both pre-increment and post-increment (++i vs i++ and --i vs i--)
-post-increment: must always create a new object
-need to write 4 function: for post and pre increment for ++ and --
-*/
-
-//deal with something that is 0 in the data set (needs to be nullptr?)
-//Node operator+ (const Node& a) -- overloads the + operator
-//Node C = A + B
-
-/*
-operator++ for singly linked list
-iterator pos = *this; 
-pos.point = pos.point->next;
-return pos;
-*/
-
-/*
-set bool flag to see if 
-if flag == true
-   increment implicit list iterator
-if flag == false
-
-*/
