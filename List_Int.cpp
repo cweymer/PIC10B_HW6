@@ -214,24 +214,20 @@ void List::reverse ()
    lastnode = firstnode; //reverses list pointers to first and last node
    firstnode = tempswap;
 }
-void List::push_front (int element)
+void List::push_front(int element)
 {
    Node* new_node = new Node(element);
-   // if (iter.position == nullptr)
-   // {  
-   //    push_back(element);
-   //    return; //simply creates new node with given data when list is empty
-   // }
-   // Node* after = iter.position; //pointer to current position
-   // Node* before = after->previous; //pointer to previous position
-   // Node* new_node = new Node(element); //creates new node object
-   // new_node->previous = before; 
-   // new_node->next = after;
-   // after->previous = new_node;
-   // if (before == nullptr) // inserts at beginning of list
-   //    {firstnode = new_node;}
-   // else
-   //    {before->next = new_node;} //inserts at indicated position
+   if (lastnode == nullptr) //if the given list is empty
+   {  
+      firstnode = new_node;
+      lastnode = new_node;
+   }
+   else
+   {  
+      new_node->next = firstnode; //move next pointer to point to old first node
+      firstnode->previous = new_node; //move previous of old firstnode to point to current node
+      firstnode = new_node; //firstnode points to current node
+   }
 }
 Iterator::Iterator () 
 {
