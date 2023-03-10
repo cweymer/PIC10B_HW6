@@ -128,7 +128,7 @@ void List::display()
                cout << *i; //does not print comma if position is last node
                break;
             }
-            cout << *i << ", ";
+            cout << *i << ",";
             i++;
          }
    cout << ")" << endl;
@@ -229,7 +229,7 @@ void List::push_front(int element)
 }
 Iterator::Iterator () 
 {
-   //
+   //empty
 }
 Iterator Iterator::operator++ (int)
 {

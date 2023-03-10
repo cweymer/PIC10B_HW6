@@ -2,7 +2,7 @@
 PIC 10B Homework 6, main_List_Int.cpp
 Author: Charlotte Weymer
 UID: 005760636
-Discussion Section: 2A
+Discussion Section: 1C
 Date: 03/10/2023
 */
 #include "List_Int.h"
@@ -11,6 +11,7 @@ int main()
 {
     cout << "Please input a set of nonnegative numbers for a list" << endl;
     cout << "(Enter -1 when you are finished):" << endl;
+    cout << endl;
     //cin list
     int input; //defines first list input
     List listreal;
@@ -25,11 +26,12 @@ int main()
     int index1;
     int value;
     int count = 0;
-    cout << "Select an index for insertion (enter -1 when finished:): ";
+    cout << endl;
+    cout << "Select an index for insertion (enter -1 when finished): ";
     cin >> index1;
     while (index1 != -1){
         if (count > 0){
-        cout << "Select an index for insertion (enter -1 when finished:): ";
+        cout << "Select an index for insertion (enter -1 when finished): ";
         cin >> index1;} //only prints after first iteration
         if (index1 == -1)
         { break;} //quits loop if user inputs escape code
@@ -39,15 +41,18 @@ int main()
         listreal.insert(tempit, value); //calls insert with user arguments
         count++; //updates count
     }
+    cout << endl;
+    cout << endl;
     cout << "The augmented list is" << endl;
     listreal.display(); //displays current, modified list
+    cout << endl;
     cout << "When we sort the previous list we obtain" << endl;
     listreal.sort();
     listreal.display();
     cout << "And this sorted list in reverse order is" << endl;
     listreal.reverse();
     listreal.display();
-    cout << "If we merge this list with the list (2, 3, 5, 7, 11) we obtain" << endl;
+    cout << "If we merge this list with the list (2,3,5,7,11) we obtain" << endl;
     List listmerge;
     listmerge.push_back(2);
     listmerge.push_back(3);
