@@ -9,7 +9,7 @@ Date: 03/10/2023
 using namespace std;
 int main()
 {
-    cout << "Please input a set of nonnegative numbers for a list" << endl;
+    cout << "Please input a set of nonnegative numbers for a List" << endl;
     cout << "(Enter -1 when you are finished):" << endl;
     cout << endl;
     //cin list
@@ -43,7 +43,7 @@ int main()
     }
     cout << endl;
     cout << endl;
-    cout << "The augmented list is" << endl;
+    cout << "The augmented List is" << endl;
     listreal.display(); //displays current, modified list
     cout << endl;
     cout << "When we sort the previous list we obtain" << endl;
