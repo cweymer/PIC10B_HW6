@@ -34,7 +34,7 @@ class List {
         void display(); //prints current list
         Iterator move(int index);
         void sort(); //sorts elements
-        void merge(List* obj1, List* obj2, List* obj3); //accepts another list object and merges the two lists into one alternating element
+        void merge(List* obj1, List* obj2); //accepts another list object and merges the two lists into one alternating element
         void reverse(); //reverses nodes 
         void push_front(int element); //adds value to beginning of list
      private:

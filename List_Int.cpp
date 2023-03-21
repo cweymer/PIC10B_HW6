@@ -168,7 +168,7 @@ void List::sort()
       i = i->next; //increment first node
    }
 }
-void List::merge(List* obj1, List* obj2, List* obj3)
+void List::merge(List* obj1, List* obj2)
 {
    Iterator list1 = obj1->begin();
    Iterator list2 = obj2->begin(); //starts iterators out at beg of list
@@ -179,7 +179,7 @@ void List::merge(List* obj1, List* obj2, List* obj3)
       {
           if (list1.position != nullptr)
           {
-               obj3->push_back(*list1); //alternates between the two list to push back data
+               this->push_back(*list1); //alternates between the two list to push back data
                list1++;
           }
       }
@@ -187,7 +187,7 @@ void List::merge(List* obj1, List* obj2, List* obj3)
       {
          if (list2.position != nullptr)
          {
-            obj3->push_back(*list2);
+            this->push_back(*list2);
             list2++;
          }
       }

@@ -60,8 +60,7 @@ int main()
     listmerge.push_back(7);
     listmerge.push_back(11); //creates secondary list called listmerge for merging
     List finalist;
-    List temp;
-    temp.merge(&listreal, &listmerge, &finalist);
+    finalist.merge(&listreal, &listmerge);
     finalist.display();
     return 0;
 }
